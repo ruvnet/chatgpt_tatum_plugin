@@ -1,0 +1,91 @@
+openapi: 3.0.1
+info:
+  title: Tatum API Plugin
+  description: A plugin that allows the user to interact with the Tatum API using ChatGPT, including ERC20 and NFT minting operations.
+  version: 'v1'
+servers:
+  - url: https://api.tatum.io/v3
+paths:
+  /blockchain/token/mint:
+    post:
+      operationId: mintToken
+      summary: Mint a new ERC20 token on the specified blockchain
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                chain:
+                  type: string
+                  description: Blockchain to mint the token on
+                amount:
+                  type: string
+                  description: Amount of tokens to mint
+                to:
+                  type: string
+                  description: Recipient address to mint tokens to
+                contractAddress:
+                  type: string
+                  description: Token contract address
+                signatureId:
+                  type: string
+                  description: KMS signature ID
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/mintTokenResponse'
+
+  /nft/mint:
+    post:
+      operationId: mintNFT
+      summary: Mint a new NFT on the specified blockchain
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                chain:
+                  type: string
+                  description: Blockchain to mint the NFT on
+                to:
+                  type: string
+                  description: Recipient address to mint NFT to
+                contractAddress:
+                  type: string
+                  description: NFT contract address
+                tokenId:
+                  type: string
+                  description: Unique identifier for the NFT
+                url:
+                  type: string
+                  description: URL pointing to the NFT metadata (e.g., IPFS URL)
+                signatureId:
+                  type: string
+                  description: KMS signature ID
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/mintNFTResponse'
+
+components:
+  schemas:
+    mintTokenResponse:
+      type: object
+      properties:
+        signatureId:
+          type: string
+          description: The transaction ID of the ERC20 token minting operation
+    mintNFTResponse:
+      type: object
+      properties:
+        signatureId:
+          type: string
+          description: The transaction ID of the NFT minting operation
