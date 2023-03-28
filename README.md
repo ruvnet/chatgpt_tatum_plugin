@@ -1,6 +1,18 @@
 ## Tatum ChatGPT Plugin
 The Tatum ChatGPT Plugin is an OpenAPI plugin that allows the user to interact with the Tatum API using ChatGPT, including ERC20 and NFT minting operations. It enables users to mint ERC20 tokens and NFTs on specified blockchains by sending requests to the Tatum API.
 
+# What is Tatum?
+
+[Tatum is a blockchain development platform](https://tatum.io/) that provides a suite of APIs, SDKs, and other tools to help developers build blockchain-based applications. It offers support for various blockchain networks, including Bitcoin, Ethereum, Ripple, and more.
+
+Tatum can be used for a wide range of blockchain-related tasks, such as:
+
+* Generating and managing cryptocurrency wallets
+* Processing cryptocurrency payments and transactions
+* Creating and managing ERC20 tokens and NFTs
+* Interacting with various blockchain networks and their smart contracts
+* Storing and retrieving data on the blockchain
+* Implementing blockchain-based authentication and identity management systems
 ## Installation
 To use this plugin, you will need to include the generated ChatGPT Plug-in manifest in YAML format in your project, along with the OpenAPI specification that describes the Tatum API endpoints.
 
